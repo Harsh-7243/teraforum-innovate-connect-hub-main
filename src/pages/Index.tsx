@@ -147,34 +147,20 @@ const Index = () => {
 
 
             {/* Desktop Navigation */}
+          
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 {navItems.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => {
-                      handleNavClick(item);
-                      scrollToSection(item.id);
+                      if (item.href) {
+                        navigate(item.href);
+                      } else {
+                        scrollToSection(item.id);
+                      }
                     }}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${activeSection === item.id
-                      ? 'bg-gradient-to-r from-orange-500 to-teal-500 text-white'
-                      : 'text-gray-300 hover:bg-slate-800 hover:text-white'
-                      }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                {navItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => {
-                      handleNavClick(item);
-                      scrollToSection(item.id);
-                    }}
+
                     className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${activeSection === item.id
                       ? 'bg-gradient-to-r from-orange-500 to-teal-500 text-white'
                       : 'text-gray-300 hover:bg-slate-800 hover:text-white'
@@ -621,58 +607,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section id="team" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-extrabold mb-2 bg-gradient-to-r from-orange-400 via-teal-400 to-blue-500 bg-clip-text text-transparent drop-shadow-lg animate-pulse">
-              Our Team
-            </h1>
-            <div className="flex justify-center">
-              <span className="block w-32 h-1 bg-gradient-to-r from-orange-400 via-teal-400 to-blue-400 rounded-full mb-4 animate-shimmer"></span>
-            </div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Meet the creative minds and leaders behind our innovation.
-            </p>
-          </div>
-
-          <div className="flex justify-center mb-16">
-            <div className="relative bg-white/10 backdrop-blur-lg border border-orange-400 rounded-3xl shadow-2xl p-8 max-w-md w-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-orange-400/40">
-              <span className="absolute top-4 left-4 bg-gradient-to-r from-orange-500 to-teal-500 text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg animate-bounce">
-                Faculty Coordinator
-              </span>
-              <img
-                src="/lovable-uploads/revanesh.jpg"
-                alt="Mr. Revanesh M"
-                className="w-36 h-36 rounded-full mx-auto object-cover border-4 border-gradient-to-r from-orange-400 to-teal-400 shadow-xl transition-all duration-300 hover:scale-105"
-              />
-              <h4 className="text-2xl font-bold mt-4 text-white drop-shadow">Mr. Revanesh M</h4>
-            </div>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            {teamSections.map((section, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-lg border border-slate-700 rounded-3xl shadow-xl p-6 flex flex-col items-center transition-all duration-300 hover:-translate-y-2 hover:shadow-teal-400/40 animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="relative mb-4">
-                  <img
-                    src={section.members[0].image}
-                    alt={section.members[0].name}
-                    className="w-24 h-24 rounded-full object-cover border-4 border-gradient-to-r from-orange-400 to-teal-400 shadow-lg transition-all duration-300 group-hover:scale-110"
-                  />
-                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-teal-500 to-orange-400 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg ring-2 ring-white/30 animate-glow">
-                    {section.members[0].role}
-                  </span>
-                </div>
-                <h4 className="text-lg font-bold text-white drop-shadow">{section.members[0].name}</h4>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Footer */}
       <footer className="bg-slate-950 border-t border-slate-800 py-8">
