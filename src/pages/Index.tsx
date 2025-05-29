@@ -4,21 +4,15 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-<<<<<<< HEAD
 import { Calendar, Users, Settings, ArrowDown, ChevronDown, ChevronUp, Mail, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-=======
-import { Calendar, Users, Settings, ArrowDown, ChevronDown, ChevronUp, Mail } from 'lucide-react';
->>>>>>> fdaedbd0feec73642d5fa744f8d62e819003f01b
+
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-<<<<<<< HEAD
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const navigate = useNavigate();
-=======
->>>>>>> fdaedbd0feec73642d5fa744f8d62e819003f01b
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -29,17 +23,15 @@ const Index = () => {
     }
   };
 
-<<<<<<< HEAD
   const handleNavClick = (item: { id: string; label: string; href?: string }) => {
     if (item.href) {
-      window.location.href = item.href;
+      navigate(item.href);
     } else {
       scrollToSection(item.id);
     }
   };
 
-=======
->>>>>>> fdaedbd0feec73642d5fa744f8d62e819003f01b
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'talrop', 'about', 'events', 'team', 'gallery', 'get-involved', 'contact'];
@@ -64,13 +56,8 @@ const Index = () => {
     { id: 'home', label: 'Home' },
     { id: 'talrop', label: 'Talrop' },
     { id: 'about', label: 'About Us' },
-<<<<<<< HEAD
     { id: 'events', label: 'Events', href: '/events' },
-    { id: 'team', label: 'Team', href: '/team' },
-=======
-    { id: 'events', label: 'Events' },
-    { id: 'team', label: 'Team' },
->>>>>>> fdaedbd0feec73642d5fa744f8d62e819003f01b
+    { id: 'team', label: 'Team', href: '/team' }, // ✅ Keep this
     { id: 'gallery', label: 'Gallery' },
     { id: 'get-involved', label: 'Get Involved' },
     { id: 'contact', label: 'Contact' }
@@ -84,7 +71,7 @@ const Index = () => {
       status: "upcoming",
       image: "/lovable-uploads/Chaos_and_clarity.avif"
     },
-    
+
   ];
 
   const teamSections = [
@@ -120,7 +107,7 @@ const Index = () => {
           role: "PR Lead",
           image: "/lovable-uploads/Harsh.png"
         },
-        
+
         {
           name: "Preethi M",
           role: "Outreach Lead",
@@ -131,7 +118,7 @@ const Index = () => {
           role: "Content & Photography Lead",
           image: "/lovable-uploads/Prajwal.jpg"
         }
-        
+
       ]
     },
   ];
@@ -158,20 +145,39 @@ const Index = () => {
               </span>
             </div>
 
+
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 {navItems.map((item) => (
                   <button
                     key={item.id}
-<<<<<<< HEAD
-                    onClick={() => handleNavClick(item)}
-=======
-                    onClick={() => scrollToSection(item.id)}
->>>>>>> fdaedbd0feec73642d5fa744f8d62e819003f01b
+                    onClick={() => {
+                      handleNavClick(item);
+                      scrollToSection(item.id);
+                    }}
                     className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${activeSection === item.id
-                        ? 'bg-gradient-to-r from-orange-500 to-teal-500 text-white'
-                        : 'text-gray-300 hover:bg-slate-800 hover:text-white'
+                      ? 'bg-gradient-to-r from-orange-500 to-teal-500 text-white'
+                      : 'text-gray-300 hover:bg-slate-800 hover:text-white'
+                      }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-baseline space-x-4">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      handleNavClick(item);
+                      scrollToSection(item.id);
+                    }}
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${activeSection === item.id
+                      ? 'bg-gradient-to-r from-orange-500 to-teal-500 text-white'
+                      : 'text-gray-300 hover:bg-slate-800 hover:text-white'
                       }`}
                   >
                     {item.label}
@@ -199,14 +205,13 @@ const Index = () => {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-<<<<<<< HEAD
-                  onClick={() => handleNavClick(item)}
-=======
-                  onClick={() => scrollToSection(item.id)}
->>>>>>> fdaedbd0feec73642d5fa744f8d62e819003f01b
+                  onClick={() => {
+                    handleNavClick(item);
+                    scrollToSection(item.id);
+                  }}
                   className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200 ${activeSection === item.id
-                      ? 'bg-gradient-to-r from-orange-500 to-teal-500 text-white'
-                      : 'text-gray-300 hover:bg-slate-800 hover:text-white'
+                    ? 'bg-gradient-to-r from-orange-500 to-teal-500 text-white'
+                    : 'text-gray-300 hover:bg-slate-800 hover:text-white'
                     }`}
                 >
                   {item.label}
@@ -382,88 +387,6 @@ const Index = () => {
         </div>
       </section>
 
-<<<<<<< HEAD
-=======
-      {/* Events Section */}
-      <section id="events" className="py-20 bg-slate-900/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">
-              Events & Activities
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Join us for events that address student challenges and provide practical exposure through interactive sessions.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {events.map((event, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 overflow-hidden hover:bg-slate-800/70 transition-all duration-300 group">
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute top-4 right-4">
-                    <Badge
-                      variant={event.status === 'upcoming' ? 'default' : 'secondary'}
-                      className={event.status === 'upcoming' ? 'bg-green-600' : 'bg-gray-600'}
-                    >
-                      {event.status === 'upcoming' ? 'Upcoming' : 'Past'}
-                    </Badge>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-white">{event.title}</h3>
-                  <p className="text-orange-400 mb-3 font-medium">{event.date}</p>
-                  <p className="text-gray-300">{event.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section id="team" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
-              Our Team
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Meet the dedicated team members driving innovation across different specialized areas.
-            </p>
-          </div>
-
-          {teamSections.map((section, sectionIndex) => (
-            <div key={sectionIndex} className="mb-12">
-              <h3 className="text-2xl font-bold text-center mb-8 text-teal-400">{section.title}</h3>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                {section.members.map((member, index) => (
-                  <Card key={index} className="bg-slate-800/50 border-slate-700 text-center hover:bg-slate-800/70 transition-all duration-300 group">
-                    <CardContent className="p-6">
-                      <div className="relative mb-6">
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-32 h-32 rounded-full mx-auto object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/20 to-teal-500/20 group-hover:opacity-100 opacity-0 transition-opacity duration-300"></div>
-                      </div>
-                      <h4 className="text-xl font-bold mb-2 text-white">{member.name}</h4>
-                      <p className="text-teal-400 font-medium">{member.role}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
->>>>>>> fdaedbd0feec73642d5fa744f8d62e819003f01b
       {/* Gallery Section */}
       <section id="gallery" className="py-20 bg-slate-900/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -482,10 +405,7 @@ const Index = () => {
                 key={index}
                 className="relative overflow-hidden rounded-lg group cursor-pointer"
                 style={{ height: index % 3 === 0 ? '300px' : '200px' }}
-<<<<<<< HEAD
                 onClick={() => setSelectedImage(image)}
-=======
->>>>>>> fdaedbd0feec73642d5fa744f8d62e819003f01b
               >
                 <img
                   src={image}
@@ -496,7 +416,6 @@ const Index = () => {
               </div>
             ))}
           </div>
-<<<<<<< HEAD
 
           {/* Modal for image pop-up */}
           {selectedImage && (
@@ -533,8 +452,6 @@ const Index = () => {
               </div>
             </div>
           )}
-=======
->>>>>>> fdaedbd0feec73642d5fa744f8d62e819003f01b
         </div>
       </section>
 
@@ -627,16 +544,12 @@ const Index = () => {
                   </div>
                   <div>
                     <p className="text-gray-300">Email us at</p>
-<<<<<<< HEAD
                     <a
                       href="mailto:risaforumpesce@gmail.com?subject=Hello%20TeraForum&body=I%20would%20like%20to%20know%20more%20about..."
                       className="text-white font-medium underline hover:text-orange-400 transition"
                     >
                       risaforumpesce@gmail.com
                     </a>
-=======
-                    <p className="text-white font-medium">risaforumpesce@gmail.com</p>
->>>>>>> fdaedbd0feec73642d5fa744f8d62e819003f01b
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -660,9 +573,9 @@ const Index = () => {
                         rel="noopener noreferrer"
                         className="text-teal-400 hover:text-teal-300 transition-colors"
                       >
-                          LinkedIn
+                        LinkedIn
                       </a>
-                      
+
                     </div>
                   </div>
                 </div>
@@ -708,7 +621,6 @@ const Index = () => {
         </div>
       </section>
 
-<<<<<<< HEAD
       {/* Team Section */}
       <section id="team" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -762,8 +674,6 @@ const Index = () => {
         </div>
       </section>
 
-=======
->>>>>>> fdaedbd0feec73642d5fa744f8d62e819003f01b
       {/* Footer */}
       <footer className="bg-slate-950 border-t border-slate-800 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
