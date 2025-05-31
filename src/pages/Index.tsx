@@ -125,7 +125,7 @@ const Index = () => {
 
   const galleryImages = [
     "/lovable-uploads/Chaos_and_clarity.avif",
-    "/lovable-uploads/team.jpg"
+    "/lovable-uploads/team.jpg",
     "/lovable-uploads/team_1.jpg"
   ];
 
