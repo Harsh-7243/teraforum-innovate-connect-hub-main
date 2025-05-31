@@ -79,8 +79,20 @@ const Team = () => {
             </p>
           </div>
 
-          {/* Faculty Card */}
-          <div className="flex justify-center mb-16">
+          {/* Faculty Cards */}
+          <div className="flex flex-row justify-center items-center gap-8 mb-16">
+            <div className="relative bg-white/10 backdrop-blur-lg border border-orange-400 rounded-3xl shadow-2xl p-8 max-w-md w-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-orange-400/40">
+              <span className="absolute top-4 left-4 bg-gradient-to-r from-orange-500 to-teal-500 text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg animate-bounce">
+                Mentor
+              </span>
+              <img
+                src="/lovable-uploads/AnitaML.jpg"
+                alt="Anita M L"
+                className="w-36 h-36 rounded-full mx-auto object-cover border-4 border-gradient-to-r from-orange-400 to-teal-400 shadow-xl transition-all duration-300 hover:scale-105"
+              />
+              <h4 className="text-2xl font-bold mt-4 text-white drop-shadow">Dr. Anita M L</h4>
+            </div>
+
             <div className="relative bg-white/10 backdrop-blur-lg border border-orange-400 rounded-3xl shadow-2xl p-8 max-w-md w-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-orange-400/40">
               <span className="absolute top-4 left-4 bg-gradient-to-r from-orange-500 to-teal-500 text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg animate-bounce">
                 Faculty Coordinator
