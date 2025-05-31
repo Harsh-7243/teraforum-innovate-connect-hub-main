@@ -87,10 +87,10 @@ const Team = () => {
               </span>
               <img
                 src="/lovable-uploads/AnitaML.jpg"
-                alt="Anita M L"
+                alt="Anitha M L"
                 className="w-36 h-36 rounded-full mx-auto object-cover border-4 border-gradient-to-r from-orange-400 to-teal-400 shadow-xl transition-all duration-300 hover:scale-105"
               />
-              <h4 className="text-2xl font-bold mt-4 text-white drop-shadow">Dr. Anita M L</h4>
+              <h4 className="text-2xl font-bold mt-4 text-white drop-shadow">Dr. Anitha M L</h4>
             </div>
 
             <div className="relative bg-white/10 backdrop-blur-lg border border-orange-400 rounded-3xl shadow-2xl p-8 max-w-md w-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-orange-400/40">
